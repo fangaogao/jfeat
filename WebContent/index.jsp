@@ -8,7 +8,7 @@
 </head>
 <body>
 <script type="text/javascript">
-window.location="${basePath}/index";
+window.location="${basePath}/jsp/index";
 </script>
 	 
 </body>

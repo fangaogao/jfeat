@@ -14,7 +14,7 @@
 			      <li><img src="${ctx}/images/banner1.jpg"> </li>
 			  </ul> 
 		</div>
-		<a href="${ctx}/search.jsp" class="search">
+		<a href="${ctx}/search.jsp" class="search" style="top:180px;">
 			开启你的美食之旅...
 		</a>
 		<ul class="nav">

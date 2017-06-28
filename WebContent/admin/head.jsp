@@ -136,7 +136,7 @@
           <li><a href="#">博客</a></li>
         </ul>
       </li>
-      <li class="dropdown li-border"><a href="#" class="dropdown-toggle mystyle-color" data-toggle="dropdown">00000000@qq.com<span class="caret"></span></a>
+      <li class="dropdown li-border"><a href="#" class="dropdown-toggle mystyle-color" data-toggle="dropdown">${sessionScope.admin.cname }<span class="caret"></span></a>
         <ul class="dropdown-menu">
           <li><a href="#">退出</a></li>
         </ul>

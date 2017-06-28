@@ -72,7 +72,7 @@
                        </div>
                        <div class="w70 right-title pull-right">
                        <div class="title-content">
-                           <p>全部订单</p>
+                           <p>已退款订单</p>
                            <h3 class="number">90</h3>
                            <button class="btn btn-default">全部订单<span style="color:red;">12</span></button>
                        </div>
@@ -87,7 +87,7 @@
                        </div>
                        <div class="w70 right-title pull-right">
                        <div class="title-content">
-                           <p>待办事项</p>
+                           <p>全部订单</p>
                            <h3 class="number">90</h3>
                            <button class="btn btn-default">待我处理<span style="color:red;">12</span></button>
                        </div>
@@ -98,68 +98,22 @@
                </div>
                <!-------信息列表------->
                <div class="row newslist" style="margin-top:20px;">
-                 <div class="col-md-8">
+                 <div class="col-md-12">
                    <div class="panel panel-default">
                       <div class="panel-heading">
-                       我的事务<div class="caret"></div>
+                       		代发货订单<div class="caret"></div>
                        <a href="#" class="pull-right"><span class="glyphicon glyphicon-refresh"></span></a>
                       </div>     
                       <div class="panel-body">
                            <div class="w15 pull-left">
                              <img src="img/noavatar_middle.gif" width="25" height="25" alt="图片" class="img-circle">
-                             安妮
+                            	 安妮
                            </div>
-                           <div class="w55 pull-left">系统需要升级</div>
-                           <div class="w20 pull-left text-center">2016年8月23日</div>
-                          <div class="w10 pull-left text-center"><span class="text-green-main">处理中</span></div>
-                      </div>
-                      
-                      <div class="panel-body">
-                           <div class="w15 pull-left">
-                             <img src="img/noavatar_middle.gif" width="25" height="25" alt="图片" class="img-circle">
-                             安妮
-                           </div>
-                           <div class="w55 pull-left">系统需要升级</div>
-                           <div class="w20 pull-left text-center">2016年8月23日</div>
-                          <div class="w10 pull-left text-center"><span class="text-green-main">处理中</span></div>
-                      </div>
-                      
-                      <div class="panel-body">
-                           <div class="w15 pull-left">
-                             <img src="img/noavatar_middle.gif" width="25" height="25" alt="图片" class="img-circle">
-                             安妮
-                           </div>
-                           <div class="w55 pull-left">系统需要升级</div>
-                           <div class="w20 pull-left text-center">2016年8月23日</div>
-                           <div class="w10 pull-left text-center"><span class="text-gray">已关闭</span></div>
-                      </div>
-                      
-                      <div class="panel-body">
-                           <div class="w15 pull-left">
-                             <img src="img/noavatar_middle.gif" width="25" height="25" alt="图片" class="img-circle">
-                             安妮
-                           </div>
-                           <div class="w55 pull-left">系统需要升级</div>
-                           <div class="w20 pull-left text-center">2016年8月23日</div>
-                           <div class="w10 pull-left text-center"><span>处理中</span></div>
-                      </div>
-                      <div class="panel-body">
-                           <div class="w15 pull-left">
-                             <img src="img/noavatar_middle.gif" width="25" height="25" alt="图片" class="img-circle">
-                             安妮
-                           </div>
-                           <div class="w55 pull-left">系统需要升级</div>
-                           <div class="w20 pull-left text-center">2016年8月23日</div>
-                           <div class="w10 pull-left text-center"><span>处理中</span></div>
-                      </div>
-                      <div class="panel-body">
-                           <div class="w15 pull-left">
-                             <img src="img/noavatar_middle.gif" width="25" height="25" alt="图片" class="img-circle">
-                             安妮
-                           </div>
-                           <div class="w55 pull-left">系统需要升级</div>
-                           <div class="w20 pull-left text-center">2016年8月23日</div>
-                           <div class="w10 pull-left text-center"><span>处理中</span></div>
+                           <div class="w40 pull-left">鸡腿，可乐</div>
+                            <div class="w20 pull-left">不要辣的</div>
+                             <div class="w5 pull-left">10元</div>
+                           <div class="w10 pull-left text-center">11:29</div>
+                          <div class="w10 pull-left text-center"><span class="text-green-main">待发货</span></div>
                       </div>
                       
                       <div class="panel-body text-center">
@@ -169,18 +123,7 @@
                     </div>
                  </div>
                  
-                 <div class="col-md-4">
-                     <div class="panel panel-default">
-                      <div class="panel-heading">
-                       我的事务统计
-                       <a href="#" class="pull-right"><span class="glyphicon glyphicon-refresh"></span></a>
-                      </div>     
-                      <div class="panel-body">
-                          
-                      </div>
-                    </div>
-                    
-                 </div>
+                  
                </div>
             </div>
             
@@ -204,8 +147,7 @@
 	  var s=myDate.getSeconds(); //获取当前秒数(0-59) 
 	  if(s<10)s="0"+s;
 	  $("#time").text(h+":"+m+":"+s);
-	  console.log(s);
-  }, 1000)
+  }, 1000);
 </script>
 </body>
 </html>

@@ -20,6 +20,7 @@ import com.xiaojie.Interceptor.ToLoginInterceptor;
 import com.xiaojie.bean.Cmg;
 import com.xiaojie.cons.Sys;
 import com.xiaojie.controller.admin.CmgController;
+import com.xiaojie.controller.front.IndexController;
 
 
 public class MyJfinalConfig extends JFinalConfig {
@@ -42,6 +43,7 @@ public class MyJfinalConfig extends JFinalConfig {
 		
 		
 		/*****front******/
+		me.add(Sys.frontUrl, IndexController.class);
 	}
 
 	@Override
