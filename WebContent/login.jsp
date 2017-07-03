@@ -8,7 +8,7 @@
 </head>
 <body>
 <script type="text/javascript">
-window.location="${basePath}/admin/login";
+window.location="${basePath}/admin/cmg/login";
 </script>
 	 
 </body>

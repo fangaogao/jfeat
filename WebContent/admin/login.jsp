@@ -14,7 +14,7 @@
 		</div>
 		<h1>厨妈妈</h1>
 		<div class="login-top">
-			<form action="loginIn" method="post">
+			<form action="${ctx}/cmg/loginIn" method="post">
 				<div class="login-ic">
 					<i></i> <input type="text" value="用户" onFocus="this.value = '';"
 						onBlur="if (this.value == '') {this.value = 'User name';}" name="cname"/>

@@ -7,7 +7,7 @@
         <ul class="navContent" style="display:block">
           <li class="active">
             <div class="showtitle" style="width:100px;"><img src="img/leftimg.png" />账号管理</div>
-            <a href="userInfo.html"><span class="sublist-icon glyphicon glyphicon-user"></span><span class="sub-title">账号管理</span></a> </li>
+            <a href="${ctx}/users/list"><span class="sublist-icon glyphicon glyphicon-user"></span><span class="sub-title">用户管理</span></a> </li>
           <li>
             <div class="showtitle" style="width:100px;"><img src="img/leftimg.png" />消息中心</div>
             <a href="message.html"><span class="sublist-icon glyphicon glyphicon-envelope"></span><span class="sub-title">消息中心</span></a> </li>

@@ -1,9 +1,5 @@
 package com.xiaojie.config;
 
- 
-
- 
-
 import com.jfinal.config.Constants;
 import com.jfinal.config.Handlers;
 import com.jfinal.config.Interceptors;
@@ -18,8 +14,10 @@ import com.jfinal.render.ViewType;
 import com.jfinal.template.Engine;
 import com.xiaojie.Interceptor.ToLoginInterceptor;
 import com.xiaojie.bean.Cmg;
-import com.xiaojie.cons.Sys;
+import com.xiaojie.bean.Users;
 import com.xiaojie.controller.admin.CmgController;
+import com.xiaojie.controller.admin.UsersController;
+import com.xiaojie.controller.front.IndexController;
 
 
 public class MyJfinalConfig extends JFinalConfig {
@@ -38,10 +36,12 @@ public class MyJfinalConfig extends JFinalConfig {
 	public void configRoute(Routes me) {
 		/*配置controll，admin是后台，front是前台*/
 		/*****admin******/
-		me.add(Sys.adminUrl, CmgController.class);
+		me.add("admin/cmg", CmgController.class);
+		me.add("admin/users", UsersController.class);
 		
 		
 		/*****front******/
+		me.add("front/index", IndexController.class);
 	}
 
 	@Override
@@ -57,6 +57,7 @@ public class MyJfinalConfig extends JFinalConfig {
 		ActiveRecordPlugin arp = new ActiveRecordPlugin(druidPlugin);    
 		arp.setShowSql(true);        
 		arp.addMapping("cmg",Cmg.class);//表与实体对应
+		arp.addMapping("users",Users.class);//表与实体对应
 		
 		//arp.setDialect(new PostgreSqlDialect());
 		
