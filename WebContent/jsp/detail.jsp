@@ -6,6 +6,9 @@
 		<meta charset="utf-8" />
 		<title>厨房妈妈</title>
 		<%@ include file="common.jsp"%>
+		
+		<link href="${ctx }/bootstrap-3.3.5-dist/css/bootstrap.min.css" title="" rel="stylesheet" />
+		
 		<style type="text/css">
 		a{color:black;}
 		</style>

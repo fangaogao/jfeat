@@ -11,7 +11,6 @@
 <link rel="stylesheet" href="${ctx}/css/amazeui.min.css" />
 <link rel="stylesheet" href="${ctx}/css/style.css?k=90" />
 
-<link href="${ctx }/bootstrap-3.3.5-dist/css/bootstrap.min.css" title="" rel="stylesheet" />
 
 <script type="text/javascript" src="${ctx}/js/jquery.min.js" ></script>
 <script type="text/javascript" src="${ctx}/js/amazeui.min.js" ></script>
