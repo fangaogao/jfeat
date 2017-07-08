@@ -42,7 +42,7 @@
 			  </ul> 
 		</div>
 		<div class="detail">
-			<h2>${foods.fname }</h2>
+			<h4>${foods.fname }</h4>
 			<div class="price">
 				<b>￥${foods.price }/${foods.unit }</b><span>（积分可抵扣5元）</span>
 			</div>
@@ -52,7 +52,7 @@
 			</div>
 		</div>
 		<div class="comment">
-			<h2>宝贝评价（0）</h2>
+			<h4>宝贝评价（0）</h4>
 			<ul>
 				<li><a hhref="">有图（0）</a></li>
 				<li><a hhref="">好评（0）</a></li>
