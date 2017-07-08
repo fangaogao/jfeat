@@ -14,7 +14,6 @@ import com.jfinal.plugin.activerecord.ActiveRecordPlugin;
 import com.jfinal.plugin.druid.DruidPlugin;
 import com.jfinal.render.ViewType;
 import com.jfinal.template.Engine;
-import com.xiaojie.Interceptor.CharsetInterceptor;
 import com.xiaojie.Interceptor.ToLoginInterceptor;
 import com.xiaojie.bean.Ad;
 import com.xiaojie.bean.Cmg;
