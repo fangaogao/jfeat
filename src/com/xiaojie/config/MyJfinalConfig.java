@@ -45,7 +45,6 @@ public class MyJfinalConfig extends JFinalConfig {
 
 	@Override
 	public void configRoute(Routes me) {
-		 
 		/*****admin******/
 		me.add("admin/cmg", CmgController.class);
 		me.add("admin/users", UsersController.class);
@@ -53,7 +52,6 @@ public class MyJfinalConfig extends JFinalConfig {
 		me.add("admin/foods", FoodsController.class);
 		me.add("admin/unit", UnitController.class);
 		me.add("admin/ad", AdController.class);
-		
 		
 		/*****front******/
 		me.add("jsp/index", IndexController.class);
@@ -86,7 +84,6 @@ public class MyJfinalConfig extends JFinalConfig {
 
 	@Override
 	public void configInterceptor(Interceptors me) {
-		 me.add(new CharsetInterceptor());
 	     me.add(new ToLoginInterceptor());
 	}
 

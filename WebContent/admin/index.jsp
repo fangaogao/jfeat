@@ -84,7 +84,7 @@
 					</div>
 					<ul class="navContent" style="display: none;">
 						<li><a href="${ctx}/ad/list"><span
-								class="sublist-icon glyphicon glyphicon-th-large"></span><span
+								class="sublist-icon glyphicon glyphicon-th-list"></span><span
 								class="sub-title">广告管理</span></a></li>
 						<li><a href="${ctx}/menuitems/list"><span
 								class="sublist-icon glyphicon glyphicon-th-large"></span><span
