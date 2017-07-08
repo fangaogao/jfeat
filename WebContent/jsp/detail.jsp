@@ -6,18 +6,45 @@
 		<meta charset="utf-8" />
 		<title>厨房妈妈</title>
 		<%@ include file="common.jsp"%>
+		<style type="text/css">
+		a{color:black;}
+		</style>
 	</head>
 	<body>
-		<div data-am-widget="slider" class="am-slider am-slider-default" data-am-slider='{}' >
+		<a style="position: absolute;z-index: 20;margin: 10px 10px;" onclick="javascript:history.go(-1);"><img src="${ctx }/images/pre.png" style="width:28px;"></a>
+		<div data-am-widget="slider" class="am-slider am-slider-default" >
 			  <ul class="am-slides">
-			      <li><img src="images/detail.png"> </li>
-			      <li><img src="images/detail.png"> </li>
+			  	 <c:if test="${ not empty  foods.foodimg1}">
+			  	 	<li><img src="${imgctx }${foods.foodimg1}"> </li>
+			  	 </c:if>
+			     <c:if test="${ not empty  foods.foodimg2}">
+			  	 	<li><img src="${imgctx }${foods.foodimg2}"> </li>
+			  	 </c:if>
+			  	 <c:if test="${ not empty  foods.foodimg3}">
+			  	 	<li><img src="${imgctx }${foods.foodimg3}"> </li>
+			  	 </c:if>
+			  	 <c:if test="${ not empty  foods.foodimg4}">
+			  	 	<li><img src="${imgctx }${foods.foodimg4}"> </li>
+			  	 </c:if>
+			  	 <c:if test="${ not empty  foods.foodimg5}">
+			  	 	<li><img src="${imgctx }${foods.foodimg5}"> </li>
+			  	 </c:if>
+			  	 <c:if test="${ not empty  foods.foodimg6}">
+			  	 	<li><img src="${imgctx }${foods.foodimg6}"> </li>
+			  	 </c:if>
+			  	 <c:if test="${ not empty  foods.foodimg7}">
+			  	 	<li><img src="${imgctx }${foods.foodimg7}"> </li>
+			  	 </c:if>
+			  	 <c:if test="${ not empty  foods.foodimg8}">
+			  	 	<li><img src="${imgctx }${foods.foodimg8}"> </li>
+			  	 </c:if> 
+			      
 			  </ul> 
 		</div>
 		<div class="detail">
-			<h2>卤香滑鸡</h2>
+			<h2>${foods.fname }</h2>
 			<div class="price">
-				<b>￥30</b><span>（积分可抵扣5元）</span>
+				<b>￥${foods.price }/${foods.unit }</b><span>（积分可抵扣5元）</span>
 			</div>
 			<div class="kucun">
 				<p>库存：1000</p>
@@ -33,22 +60,23 @@
 				<li><a hhref="">差评（0）</a></li>
 			</ul>
 		</div>
-        <div class="detail-con">
-        	<p>  排毒排便－香蕉牛奶汁</p>
-	      	<p>  适量加入牛奶调理，可以补充更多钙质，对于正在减肥中的女孩来说，也比较有饱足感。经常失眠或是容易经痛的女孩也可以喝喝看！</p>
-	      	<br />
-	      	<br />
-	      	<p>  止咳防晕－芒果汁</p>
-	      	<p>  退火利尿－椰子汁</p>
-	      	<p>  不过有的人会怕椰子的味道，也因为椰子水生冷寒性，因此女孩们如果想喝椰子水来消暑，或是肠胃不好的人，在喝之前还是要三思！</p>
-	      	<p>  水果之王－奇异果汁</p>
-	      	<img src="images/banner.jpg" />
+        <div class="detail-con" id="detail-con" data-fdesc='${foods.fdesc}'>
         </div>
 		<div class="h50"></div>
-		<ul class="fixed-btn">
+		<ul class="fixed-btn" style="bottom:-10px;">
 			<li ><a href="" class="current">立即购买</a></li>
 			<li><a href="javascript:;">加入购物车</a></li>
 		</ul>
 		
 	</body>
+	
+	<script type="text/javascript">
+	var fdesc=$('#detail-con').attr('data-fdesc');
+	if($.trim(fdesc).length>0){
+		$('#detail-con').html(fdesc);
+	}
+	
+	 
+	</script>
+	
 </html>

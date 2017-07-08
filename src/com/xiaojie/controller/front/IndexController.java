@@ -36,7 +36,7 @@ public class IndexController extends Controller{
 	private void getMunuAndFoods() { 
 		List<MenuItems> menuli=MenuItems.dao.find("select mid,mname,icon from menuItems where status=? order by msort desc",
 				new Object[]{Sys.Common.USE});
-		List<Foods> foodli=Foods.dao.find("select foodimg1,price,unit,fname,mid from foods where status=? and putaway=?",
+		List<Foods> foodli=Foods.dao.find("select fid,foodimg1,price,unit,fname,mid from foods where status=? and putaway=?",
 				new Object[]{Sys.Common.USE,Sys.Common.USE});
 		//避免循环查询，手动合并菜单
 		Map<Integer, List<Foods>> foodsMap=new HashMap<Integer, List<Foods>>();

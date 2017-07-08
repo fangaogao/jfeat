@@ -5,9 +5,14 @@
 <meta name="description" content="厨房妈妈" />
 <meta name="keywords" content="厨房妈妈"/>
 <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+
 		
 <link rel="stylesheet" href="${ctx}/css/amazeui.min.css" />
-<link rel="stylesheet" href="${ctx}/css/style.css" />
+<link rel="stylesheet" href="${ctx}/css/style.css?k=90" />
+
+<link href="${ctx }/bootstrap-3.3.5-dist/css/bootstrap.min.css" title="" rel="stylesheet" />
+
 <script type="text/javascript" src="${ctx}/js/jquery.min.js" ></script>
 <script type="text/javascript" src="${ctx}/js/amazeui.min.js" ></script>
  

@@ -39,7 +39,7 @@
 		     <c:forEach var="fitem" items="${item.foodsli}" varStatus="status">
 		      <li>
 		        <div class="am-gallery-item">
-		            <a href="${ctx}/detail.jsp" class="">
+		            <a href="${ctx}/detail/desc?id=${fitem.fid}" class="">
 		              <img src="${imgctx}${fitem.foodimg1}"  alt=""/>
 		              <h3 class="am-gallery-title">${fitem.fname }</h3>
 		              <div class="am-gallery-desc">

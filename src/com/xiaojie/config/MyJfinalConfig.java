@@ -27,6 +27,7 @@ import com.xiaojie.controller.admin.FoodsController;
 import com.xiaojie.controller.admin.MenuItemsController;
 import com.xiaojie.controller.admin.UnitController;
 import com.xiaojie.controller.admin.UsersController;
+import com.xiaojie.controller.front.DetailController;
 import com.xiaojie.controller.front.IndexController;
 
 
@@ -54,6 +55,7 @@ public class MyJfinalConfig extends JFinalConfig {
 		
 		/*****front******/
 		me.add("jsp/index", IndexController.class);
+		me.add("jsp/detail", DetailController.class);
 	}
 
 	@Override
