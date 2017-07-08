@@ -12,14 +12,8 @@ table {
 </style>
 </head>
 
-<body bgcolor="#ffffff">
-	<%@ include file="head.jsp"%>
-
-	<div class="down-main">
-		<%@ include file="left.jsp"%>
-
-		<div class="right-product my-index right-full">
-			<div class="container-fluid">
+<body  style="background: none;background: #ededed;">
+	<div class="container-fluid">
 				 
 				<!-- add start -->
 				<div class="info-center-title"  style="background: #ffffff;padding: 10px 10px;">
@@ -45,9 +39,6 @@ table {
 				
 				 
 			</div>
-		</div>
-	</div>
-
 
 	 
 

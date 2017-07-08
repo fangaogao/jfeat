@@ -39,5 +39,10 @@ public class CmgController extends Controller{
 		this.render("/admin/index.jsp");
 	}
 	
+	public void logout(){
+		this.getRequest().getSession().removeAttribute("admin");
+		this.render("/admin/login.jsp");
+	}
+	
  
 }

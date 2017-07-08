@@ -1,5 +1,7 @@
 package com.xiaojie.config;
 
+ 
+
 import com.jfinal.config.Constants;
 import com.jfinal.config.Handlers;
 import com.jfinal.config.Interceptors;
@@ -12,10 +14,19 @@ import com.jfinal.plugin.activerecord.ActiveRecordPlugin;
 import com.jfinal.plugin.druid.DruidPlugin;
 import com.jfinal.render.ViewType;
 import com.jfinal.template.Engine;
+import com.xiaojie.Interceptor.CharsetInterceptor;
 import com.xiaojie.Interceptor.ToLoginInterceptor;
+import com.xiaojie.bean.Ad;
 import com.xiaojie.bean.Cmg;
+import com.xiaojie.bean.Foods;
+import com.xiaojie.bean.MenuItems;
+import com.xiaojie.bean.Unit;
 import com.xiaojie.bean.Users;
+import com.xiaojie.controller.admin.AdController;
 import com.xiaojie.controller.admin.CmgController;
+import com.xiaojie.controller.admin.FoodsController;
+import com.xiaojie.controller.admin.MenuItemsController;
+import com.xiaojie.controller.admin.UnitController;
 import com.xiaojie.controller.admin.UsersController;
 import com.xiaojie.controller.front.IndexController;
 
@@ -34,14 +45,18 @@ public class MyJfinalConfig extends JFinalConfig {
 
 	@Override
 	public void configRoute(Routes me) {
-		/*配置controll，admin是后台，front是前台*/
+		 
 		/*****admin******/
 		me.add("admin/cmg", CmgController.class);
 		me.add("admin/users", UsersController.class);
+		me.add("admin/menuitems", MenuItemsController.class);
+		me.add("admin/foods", FoodsController.class);
+		me.add("admin/unit", UnitController.class);
+		me.add("admin/ad", AdController.class);
 		
 		
 		/*****front******/
-		me.add("front/index", IndexController.class);
+		me.add("jsp/index", IndexController.class);
 	}
 
 	@Override
@@ -55,9 +70,14 @@ public class MyJfinalConfig extends JFinalConfig {
 				
 		me.add(druidPlugin);
 		ActiveRecordPlugin arp = new ActiveRecordPlugin(druidPlugin);    
-		arp.setShowSql(true);        
-		arp.addMapping("cmg",Cmg.class);//表与实体对应
-		arp.addMapping("users",Users.class);//表与实体对应
+		arp.setShowSql(true);   
+		 
+		arp.addMapping("cmg",Cmg.class);//瀹㈡湇
+		arp.addMapping("users",Users.class);//鐢ㄦ埛
+		arp.addMapping("menuItems",MenuItems.class);//鑿滃崟
+		arp.addMapping("foods",Foods.class);//椋熺墿
+		arp.addMapping("unit",Unit.class);//鍗曚綅
+		arp.addMapping("ad",Ad.class);//鍗曚綅
 		
 		//arp.setDialect(new PostgreSqlDialect());
 		
@@ -66,7 +86,8 @@ public class MyJfinalConfig extends JFinalConfig {
 
 	@Override
 	public void configInterceptor(Interceptors me) {
-	     me.add(new ToLoginInterceptor());/*admin的全局拦截器*/
+		 me.add(new CharsetInterceptor());
+	     me.add(new ToLoginInterceptor());
 	}
 
 	@Override

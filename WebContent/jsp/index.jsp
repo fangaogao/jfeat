@@ -18,83 +18,40 @@
 			开启你的美食之旅...
 		</a>
 		<ul class="nav">
-			<li>
-				<a href="${ctx}/search.jsp">
-					<img src="${ctx}/images/icon.jpg" />
-					<p>最新推荐</p>
-				</a>
-			</li>
-			<li>
-				<a href="${ctx}/search.jsp">
-					<img src="${ctx}/images/icon1.jpg" />
-					<p>热门菜谱</p>
-				</a>
-			</li>
-			<li>
-				<a href="${ctx}/search.jsp">
-					<img src="${ctx}/images/icon2.jpg" />
-					<p>人气菜肴</p>
-				</a>
-			</li>
-			<li>
-				<a href="${ctx}/yhq.jsp">
-					<img src="${ctx}/images/icon3.jpg" />
-					<p>优惠券</p>
-				</a>
-			</li>
+			<c:forEach var="item" items="${mfli}" varStatus="status">
+			 	<li>
+					<a href="${ctx}/search.jsp">
+						<img src="${imgctx}${item.menu.icon}" />
+						<p>${item.menu.mname }</p>
+					</a>
+				</li>
+			</c:forEach>
 		</ul>
+	<c:forEach var="item" items="${mfli}" varStatus="status">
+		 
 		<div data-am-widget="titlebar" class="am-titlebar am-titlebar-default title" >
-		    <h2 class="am-titlebar-title ">   积分菜品 </h2>
+		    <h2 class="am-titlebar-title ">${item.menu.mname }</h2>
 		    <nav class="am-titlebar-nav">
-		        <a href="#more" class="">more &raquo;</a>
+		        <a href="#more" class=""></a>
 		    </nav>
 		</div>
 	    <ul data-am-widget="gallery" class="am-gallery am-avg-sm-2 am-avg-md-3 am-avg-lg-4 am-gallery-default product">
+		     <c:forEach var="fitem" items="${item.foodsli}" varStatus="status">
 		      <li>
 		        <div class="am-gallery-item">
 		            <a href="${ctx}/detail.jsp" class="">
-		              <img src="${ctx}/images/p.png"  alt=""/>
-		              <h3 class="am-gallery-title">商务单人餐</h3>
+		              <img src="${imgctx}${fitem.foodimg1}"  alt=""/>
+		              <h3 class="am-gallery-title">${fitem.fname }</h3>
 		              <div class="am-gallery-desc">
-		              	<em>￥50</em><i class="am-icon-cart-plus"></i>
+		              	<em>￥${fitem.price}/${fitem.unit}</em><i class="am-icon-cart-plus"></i>
 		              </div>
 		            </a>
 		        </div>
 		      </li>
-		      <li>
-		        <div class="am-gallery-item">
-		            <a href="${ctx}/detail.jsp" class="">
-		              <img src="${ctx}/images/p1.png"  alt=""/>
-		                <h3 class="am-gallery-title">虐狗情人杯</h3>
-		                <div class="am-gallery-desc">
-		                	<em>￥50</em><i class="am-icon-cart-plus"></i>
-		                </div>
-		            </a>
-		        </div>
-		      </li>
-		      <li>
-		        <div class="am-gallery-item">
-		            <a href="${ctx}/detail.jsp" class="">
-		              <img src="${ctx}/images/p2.png"  alt=""/>
-		                <h3 class="am-gallery-title">卤香滑鸡 </h3>
-		                <div class="am-gallery-desc">
-		                	<em>￥50</em><i class="am-icon-cart-plus"></i>
-		                </div>
-		            </a>
-		        </div>
-		      </li>
-		      <li>
-		        <div class="am-gallery-item">
-		            <a href="${ctx}/detail.jsp" class="">
-		              <img src="${ctx}/images/p3.png"  alt=""/>
-		                <h3 class="am-gallery-title">酷炫绵绵球</h3>
-		                <div class="am-gallery-desc">
-		                	<em>￥50</em><i class="am-icon-cart-plus"></i>
-		                </div>
-		            </a>
-		        </div>
-		      </li>
-		 </ul>
+		     </c:forEach>
+		 </ul>	
+	</c:forEach>
+		
 		 <div class="h50"></div>
 		<div data-am-widget="navbar" class="am-navbar am-cf am-navbar-default footer "  id="">
 		      <ul class="am-navbar-nav am-cf am-avg-sm-4">

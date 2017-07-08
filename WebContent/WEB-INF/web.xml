@@ -6,6 +6,9 @@
 	<display-name>Myjfinal</display-name>
 	<welcome-file-list>
 		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>login.jsp</welcome-file>
+		<welcome-file>admin/login.jsp</welcome-file>
+		<welcome-file>jsp/index.jsp</welcome-file>
 	</welcome-file-list>
 	<filter>
 		<filter-name>jfinal</filter-name>

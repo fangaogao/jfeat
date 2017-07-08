@@ -141,7 +141,38 @@ public class UsersController extends Controller{
 		list();
 	}
 	
-	 
+	public void useIds(){
+		String ids=this.getPara("ids");
+		String[] idarr=ids.split(",");
+		for(String id:idarr){
+			Db.update("update users set status=? where uid=?",
+					new Object[]{Sys.Common.USE,id});
+		}
+		list();
+	}
 	
+	public void nouseIds(){
+		String ids=this.getPara("ids");
+		String[] idarr=ids.split(",");
+		for(String id:idarr){
+			Db.update("update users set status=? where uid=?",
+					new Object[]{Sys.Common.NO_USE,id});
+		}
+		list();
+	}
+	
+	public void initPwdIds(){
+		String ids=this.getPara("ids");
+		String[] idarr=ids.split(",");
+		for(String id:idarr){
+			Users u=Users.dao.findFirst("select * from users where uid=?", new Object[]{id});
+			if(u!=null){
+				String pwd=u.getStr("mobile").substring(0,6);
+				Db.update("update users set pwd=? where uid=?",
+						new Object[]{pwd,id});
+			}
+		}
+		list();
+	}
  
 }
