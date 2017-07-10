@@ -85,7 +85,7 @@ table {
 								<td>${item.price }/${item.unit }</td>
 								<td>${item.putaway eq 1?"上架":"下架" }</td>
 								<td>${item.pts} </td>
-								<td>${item.staus eq 1?"启用":"禁用" }</td>
+								<td>${item.status eq 1?"启用":"禁用" }</td>
 								<td>${item.mname}</td>
 								<td>${item.fsort}</td>
 								<td>${item.note}</td>

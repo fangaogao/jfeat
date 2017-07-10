@@ -74,8 +74,8 @@ public class UsersController extends Controller{
 		if(u==null){
 			String pwd=mobile.substring(0, 6);
 			String nickname=mobile.replace(mobile.substring(3, 7), "*****");
-			Db.update("insert into users(pwd, nickname, cts, mobile,userfrom) values(?, ?, ?, ?,?)",
-					new Object[]{pwd,nickname,DateUtils.DateTimeToString(new Date()),mobile,0});
+			Db.update("insert into users(pwd, nickname, cts, mobile,userfrom,imgface) values(?, ?, ?, ?,?,?)",
+					new Object[]{pwd,nickname,DateUtils.DateTimeToString(new Date()),mobile,0,Sys.Upimgs.defaultFace});
 			list();
 		}else{
 			this.setAttr("msg", "ÒÑ¾­×¢²á¹ý");

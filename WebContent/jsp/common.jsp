@@ -14,4 +14,4 @@
 
 <script type="text/javascript" src="${ctx}/js/jquery.min.js" ></script>
 <script type="text/javascript" src="${ctx}/js/amazeui.min.js" ></script>
- 
+<script type="text/javascript" src="${ctx}/js/layer.js" ></script> 

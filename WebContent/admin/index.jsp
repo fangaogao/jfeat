@@ -97,6 +97,20 @@
 								class="sub-title">菜品管理</span></a></li>
 					</ul>
 				</div>
+				<div class="sBox">
+					<div class="subNav sublist-down">
+						<span class="title-icon glyphicon glyphicon-chevron-down"></span><span
+							class="sublist-title">推广管理</span>
+					</div>
+					<ul class="navContent" style="display: none">
+						<li><a href=""><span
+								class="sublist-icon glyphicon glyphicon-file"></span><span
+								class="sub-title">优惠券</span></a></li>
+						<li><a href=""><span
+								class="sublist-icon glyphicon glyphicon-inbox"></span><span
+								class="sub-title">积分管理</span></a></li>
+					</ul>
+				</div>
 			</div>
 		</div>
 

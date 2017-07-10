@@ -32,6 +32,10 @@ public class Sys {
 		public static String fdesc="/fdesc"; 
 		/*广告*/
 		public static String ad="/ad"; 
+		/*头像*/
+		public static String face="/face"; 
+		/*默认头像*/
+		public static String defaultFace="/upload/face.png";
 		 
 	} 
 }
