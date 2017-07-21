@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="render" content="webkit">   
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" >
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
+		<link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+		<script src="js/jquery.min.js"></script>
+		<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<script src="js/prefixfree.min.js"></script>
+	</head>
+
+	<body style="background: #fbfbfb;">
+		<div class="container">
+			<div style="padding-top: 30px;">
+				<a class="pull-left" href='index.html'>
+					<img src="img/website.png" class="img-responsive">
+				</a>
+			</div>
+		</div>
+		<nav class="navbar navbar-default" role="navigation"  style="background: #91b8f1;">
+			<div class="container"> 
+				<div class="navbar-header">
+					<a class="navbar-brand"  href="index.html" style="color: #FFFFFF;font-weight: 600;">主页</a>
+				</div>
+			</div>
+		</nav>
+		
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4">
+					<img alt="404" src="img/404.png" class="img-responsive">
+				</div>
+				<div class="col-md-8">
+					<h1>
+						网页找不到了，请检查您的网络或链接是否正确...
+						<small id="refsh">
+							10秒之后，自动返回
+							<a href="index.html">首页</a>
+						</small>
+					</h1>
+				</div>
+			</div>
+		</div>
+		<div style="width:300px;margin:0 auto; padding:20px 0;">
+	 		<a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=33010802008306" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;"><img src="img/beian.png" style="float:left;"/><p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#939393;">浙公网安备 33010802008306号</p></a>
+		</div>
+	</body>
+<script>
+	var i=10;
+	var seti=setInterval(function(){
+		if(i==1){
+			clearInterval(seti);
+			window.location="index.html";
+		}
+		i--;
+		$('#refsh').html(i+'秒之后，自动返回<a href="index.html">首页</a>');
+	}, 1000)
+</script>
+</html>

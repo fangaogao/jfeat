@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="en" manifest="chache/index.manifest">
+
+
+	<head>
+		<meta charset="utf-8">
+		<title>JFIT-杰凡IT有偿问答</title>
+		<meta name="render" content="webkit">   
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" >
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
+		<link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+		<script src="js/jquery.min.js"></script>
+		<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		
+		<!--富文本剪辑器st-->		
+		<link rel="stylesheet" type="text/css" href="simditor-1.0.5/styles/font-awesome.css" />
+	    <link rel="stylesheet" type="text/css" href="simditor-1.0.5/styles/simditor.css" />
+		<!--富文本剪辑器end-->
+	
+	   
+		<script src="js/prefixfree.min.js"></script>  
+		<link rel="stylesheet" href="css/style.css" type="text/css" />
+	</head>
+	<body>
+		<div class="container">
+			<div style="padding-top: 30px;">
+				<a class="pull-left" href="index.html">
+					<img src="img/website.png" class="img-responsive">
+				</a>
+
+				<div class="pull-right">
+					<h5 id="top_landreg">
+						<span  data-toggle="modal" data-target="#myModal_landreg" id="btn_land" style="cursor: pointer;">登录&nbsp;</span>/
+						<span data-toggle="modal" data-target="#myModal_landreg" id="btn_reg" style="cursor: pointer;">&nbsp;注册</span>
+					</h5>
+					<h5 id="logout" style="display: none;cursor: pointer;">
+						<span id="say_hello"></span>/
+						<span id="btn_logout">退出</span>
+					</h5>
+				</div>
+				<button class="btn btn-default pull-right" type="button" style="background:#fbfbfb;margin-right: 10px;" id="goto_fabu">发布问题</button>
+
+			</div>
+		</div>
+		<nav class="navbar navbar-default" role="navigation"  style="background: #91b8f1;">
+			<div class="container"> 
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#nav-collapse">
+						<span class="sr-only">切换导航</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand"  href="index.html" style="color: #FFFFFF;font-weight: 600;">主页</a>
+				</div>
+				<div class="collapse navbar-collapse" id="nav-collapse">
+					<ul class="nav navbar-nav" id="first_category"></ul>
+				</div>
+			</div>
+		</nav>
+
+		<div class="container">
+			<div class="row">
+				<!--row-->
+
+				<div class="col-md-2"><!--col-md-3-->
+					<div  class="uinfo_show"><!--uinfo_show-->
+						<div>
+							<img src="img/imgface.jpg" class="img-rounded uinfoC"  style="width: 70px;cursor: pointer;" id="me_faceimg"/>
+						</div>
+						<div>
+							<span class="uinfo_jf">能力<i style="color: #a7c6ff;" id="me_ability">0</i>/</span>
+							<span class="uinfo_jf">信用<i style="color: #79e29c;" id="me_credit">0</i></span>
+						</div>
+						<div>
+							<span class="uinfosItem uinfoC" id="me_nickname">请输入昵称</span>
+						</div>
+						<div>
+							<span  class="uinfosItem uinfoC"><b>QQ&nbsp;</b><font id="me_QQ">请输入QQ</font></span>
+						</div>
+						<div>
+							<a class="uinfosItem uinfoC" style="margin-right: 10px;" id="me_xiugaiPwd">修改密码</a>
+							<a class="uinfosItem uinfoC" id="me_xiugaiPhone">修改手机</a>
+						</div>
+					</div><!--uinfo_show-->
+					 
+					<div  class="uinfo_show" style="margin-top: 20px;border-top:18px solid #91b8f1;"><!--uinfo_show-->
+						<div>
+							<img src="img/money.png" class="img-circle" style="width: 40px;cursor: pointer;margin-top: -60px;"/>
+						</div>
+						<div>
+							<span class="uinfosItem">余额：<b id="me_wallet">**</b><img src="img/see0.png" style="width: 20px;cursor: pointer;margin-left: 15px;" id="see_wallet"></span>
+						</div>
+						<div>
+							<a class="uinfosItem uinfoC" id="me_bill">查看账单</a>
+						</div>
+						<div>
+							<a class="uinfosItem uinfoC" id="me_withdrawal">查看提现记录</a>
+						</div>
+						<div>
+							<button class="btn btn-default" type="button" id="me_want_withdrawal">我要提现</button>
+						</div>
+					</div><!--uinfo_show-->
+					
+					<div class="panel-group" id="accordion"  style="margin-top:20px;"><!--panel-group-->
+						<div class="panel panel-default"  style="border:2px solid #91b8f1;border-radius:10px;">
+							<div class="panel-heading" style="background:#91b8f1;color:#ffffff;">
+								<h4 class="panel-title">
+									<a  href="#" id="skill">
+										技能选择
+									</a>
+								</h4>
+							</div>
+						</div>	
+					</div><!--panel-group-->
+					
+				</div><!--col-md-3-->
+				<div class="col-md-10"><!--col-md-9-->
+					<div class="leftContent">
+						
+						<ul class="nav nav-tabs" id="go_menu">
+							<li class="active" id="go_fabu"><a href="#fabu" data-toggle="tab">发布问题</a></li>
+							<li id="go_tiwenlist"><a href="#tiwenlist" data-toggle="tab">提问列表</a></li>
+							<li id="go_carlist"><a href="#carlist" data-toggle="tab">我的待定</a></li>
+							<li id="go_answerlist"><a href="#myansewrlist" data-toggle="tab">我的回答</a></li>
+						</ul>
+						<!---------------*****************发布问题----------------->
+						<div class="tab-pane fade in active" id="fabu">
+							 <form class="form-horizontal" role="form" style="margin-top: 20px;margin-bottom: 20px;">
+								<div class="form-group">
+								    <label for="title_fb" class="col-sm-1 control-label">标题</label>
+								    <div class="col-sm-10">
+								    	<input type="text" class="form-control" id="title_fb" placeholder="请输入标题">
+								    </div>
+								</div>
+								<div class="form-group">
+								    <label for="title" class="col-sm-1 control-label">分类</label>
+								    <div class="col-sm-3">
+								    	<select class="form-control" id="yj_fl"></select>
+								    </div>
+								    <div class="col-sm-3">
+										<input  id="ej_flinp" type="text" class="form-control  tooltip-test uinfosItem "  placeholder="请输入二級分类">     	 
+								    </div>
+								</div>
+								<div class="form-group">
+							    	<label for="money_fb" class="col-sm-1 control-label">赏金</label>
+							    	<div class="col-sm-10">
+							    		<input type="number" class="form-control" id="money_fb" placeholder="至少10元(输入适当的赏金，会吸引更多大神帮你解决哦)" min="2">
+									</div>
+								</div>
+								<div class="form-group">
+							    	<label for="realmoney_fb" class="col-sm-1 control-label">实收</label>
+							    	<div class="col-sm-10">
+							      		<input type="number" class="form-control tooltip-test uinfosItem " id="realmoney_fb"  readonly="readonly"  title="平台将收取1元的服务费，此费用不退"  data-toggle="tooltip" >
+							    	</div>
+							  	</div>
+							  	<div class="form-group">
+							    	<label for="editor" class="col-sm-1 control-label"></label>
+							    	<div class="col-sm-10">
+					    				<textarea id="editor" placeholder="这里输入内容" autofocus></textarea>	
+							    	</div>
+							  	</div>
+							  		<div class="form-group">
+							    	<label for="editor" class="col-sm-1 control-label"></label>
+							    	<div class="col-sm-10">
+					    				<input type="checkbox" id="userbook">我接受<a href="javascript:;" id="userbookiframe">用户协议</a>
+							    	</div>
+							  	</div>
+							  	<div class="form-group">
+							    	<label for="realmoney" class="col-sm-1 control-label"></label>
+							    	<div class="col-sm-10" style="text-align: center;"> 
+					    				<button type="button" class="btn btn-default" style="margin-left: 10px;background: #91b8f1;color: #FFFFFF;" id="fabu_fb" data-c=0>下一步</button>
+							    	</div>
+							  	</div>
+							</form>    
+						</div>
+						<!---------------*****************提问列表----------------->
+						<div class="tab-pane fade" id="tiwenlist" style="min-height: 450px;">
+							<div class="row">
+								<div class="col-sm-3">
+									<div class="input-group">
+										<select id="matter_solve_status" class="form-control">
+											<option data-va="-1">全部</option>
+											<option data-va="0">待解决</option>
+											<option data-va="1">已解决</option>
+										<select>
+										<span class="input-group-btn">
+											<button id="matter_searh" class="btn btn-default" type="button">
+												检索
+											</button>
+										</span>
+									</div><!-- /input-group -->
+								</div><!-- /.col-lg-6 -->
+							</div><!-- /.row -->
+							<div style="height: 10px;"></div>
+							<table class="table table-hover table-striped">
+								<thead class="table_title">
+									<tr>
+										<th>支付时间</th>
+										<th>赏金</th>
+										<th>标题</th>
+										<th>状态</th>
+										<th>竞标人数</th>
+										<th>操作</th>
+									</tr>
+								</thead>
+								<tbody id="mymatter_list"></tbody>
+							</table>
+							<div class="loading" id="load_matterlist"><img src="img/loading.gif"></div>
+							<ul class="pagination pull-right" id="matterlist_footer" style="margin-right: 10px;"></ul>
+						</div>
+						<!---------------*****************我的待定----------------->
+						<div class="tab-pane fade" id="carlist" style="min-height: 450px;">
+							<div style="height: 10px;"></div>
+							<table class="table table-hover table-striped">
+								<thead class="table_title">
+									<tr>
+										<th>头像</th>
+										<th>昵称</th>
+										<th>信用</th>
+										<th>问题</th>
+										<th>状态</th>
+										<th>创建时间</th>
+										<th>操作</th>
+									</tr>
+								</thead>
+								<tbody id="mycar_list"></tbody>
+							</table>
+							<div class="loading" id="load_mycarlist"><img src="img/loading.gif"></div>
+							<ul class="pagination pull-right" id="mycarlist_footer" style="margin-right: 10px;"></ul>
+						</div>
+						<!---------------*****************我的回答----------------->
+						<div class="tab-pane fade" id="myansewrlist" style="min-height: 450px;">
+							<div style="height: 10px;"></div>
+							<table class="table table-hover table-striped">
+								<thead class="table_title">
+									<tr>
+										<th>头像</th>
+										<th>昵称</th>
+										<th>信用</th>
+										<th>电话</th>
+										<th>QQ</th>
+										<th>问题</th>
+										<th>状态</th>
+										<th>创建时间</th>
+										<th>操作</th>
+									</tr>
+								</thead>
+								<tbody id="myanswer_list"></tbody>
+							</table>
+							<div class="loading" id="load_myanswer"><img src="img/loading.gif"></div>
+							<ul class="pagination pull-right" id="myanswer_footer" style="margin-right: 10px;"></ul>
+						</div>
+						<!---------------*****************我的回答end----------------->
+						
+					</div>
+				</div><!--col-md-9-->
+			</div><!--row-->
+			
+			<div style="width:300px;margin:0 auto; padding:20px 0;">
+		 		<a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=33010802008306" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;"><img src="img/beian.png" style="float:left;"/><p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#939393;">浙公网安备 33010802008306号</p></a>
+			</div> 
+		
+		</div>
+		
+		<div style="height: 20px;"></div>
+		
+		
+		<!-- 修改昵称---------------------------->
+		<div class="modal fade" id="myModal_nickanme" tabindex="-1" role="dialog" aria-labelledby="myModal_nickanme" aria-hidden="true">
+		    <div class="modal-dialog">
+		        <div class="modal-content">
+		            <div class="modal-header">
+		                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+		                <h4 class="modal-title">修改昵称</h4>
+		            </div>
+		            <div class="modal-body">
+		            	<input type="text" class="form-control" id="xg_nickname"  placeholder="请输入昵称">
+		            </div>
+		            <div class="modal-footer">
+		                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+		                <button type="button" class="btn btn-primary" id="sure_nickname">确定</button>
+		            </div>
+		        </div><!-- /.modal-content -->
+		    </div>
+		</div><!-- /.modal -->
+		
+		<!-- 修改QQ---------------------------->
+		<div class="modal fade" id="myModal_QQ" tabindex="-1" role="dialog" aria-labelledby="myModal_QQ" aria-hidden="true">
+		    <div class="modal-dialog">
+		        <div class="modal-content">
+		            <div class="modal-header">
+		                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+		                <h4 class="modal-title">修改QQ<small>&nbsp;请填写真实QQ哦，大神可以快速找到你</small></h4>
+		            </div>
+		            <div class="modal-body">
+		            	<input type="number" class="form-control" id="xg_QQ"  placeholder="请输入QQ">
+		            </div>
+		            <div class="modal-footer">
+		                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+		                <button type="button" class="btn btn-primary" id="sure_QQ">确定</button>
+		            </div>
+		        </div><!-- /.modal-content -->
+		    </div>
+		</div><!-- /.modal -->
+		
+		<!-- 修改密码---------------------------->
+		<div class="modal fade" id="myModal_pwd" tabindex="-1" role="dialog" aria-labelledby="myModal_pwd" aria-hidden="true">
+		    <div class="modal-dialog">
+		        <div class="modal-content">
+		            <div class="modal-header">
+		                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+		                <h4 class="modal-title">修改密码</h4>
+		            </div>
+		            <div class="modal-body">
+		            	<form class="form-horizontal" role="form">
+						  <div class="form-group">
+						    <label for="xg_oldpwd" class="col-sm-2 control-label">旧密码</label>
+						    <div class="col-sm-9">
+						      <input type="password" class="form-control" id="xg_oldpwd" placeholder="请输入旧密码">
+						    </div>
+						  </div>
+						  <div class="form-group">
+						    <label for="xg_newpwd" class="col-sm-2 control-label">新密码</label>
+						    <div class="col-sm-9">
+						      <input type="password" class="form-control" id="xg_newpwd" placeholder="请输入新密码">
+						    </div>
+						  </div>
+						  <div class="form-group">
+						    <label for="xg_comfpwd" class="col-sm-2 control-label">确认密码</label>
+						    <div class="col-sm-9">
+						      <input type="password" class="form-control" id="xg_comfpwd" placeholder="请输入确认密码">
+						    </div>
+						  </div>  
+						</form>
+		            </div>
+		            <div class="modal-footer">
+		                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+		                <button type="button" class="btn btn-primary" id="sure_pwd">确定</button>
+		            </div>
+		        </div><!-- /.modal-content -->
+		    </div>
+		</div><!-- /.modal -->
+		<!-- 修改手机号---------------------------->
+		<div class="modal fade" id="myModal_mobile" tabindex="-1" role="dialog" aria-labelledby="myModal_mobile" aria-hidden="true">
+		    <div class="modal-dialog">
+		        <div class="modal-content">
+		            <div class="modal-header">
+		                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+		                <h4 class="modal-title">修改手机号</h4>
+		            </div>
+		            <div class="modal-body">
+		            	<form class="form-horizontal" role="form">
+						  <div class="form-group">
+						    <label for="xg_mobile" class="col-sm-2 control-label">手机号</label>
+						    <div class="col-sm-6">
+						      <input type="text" class="form-control" id="xg_mobile" placeholder="请输入手机号">
+						    </div>
+						    <div class="col-sm-3">
+						     	<button class="btn btn-default btn-block" type="button" id="sendcode">发送验证码</button>
+						    </div>
+						  </div>
+						  <div class="form-group">
+						    <label for="xg_code" class="col-sm-2 control-label">验证码</label>
+						    <div class="col-sm-9">
+						      <input type="text" class="form-control" id="xg_code" placeholder="请输入验证码">
+						    </div>
+						  </div>
+						</form>
+		            </div>
+		            <div class="modal-footer">
+		                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+		                <button type="button" class="btn btn-primary" id="sure_mobilexg">确定</button>
+		            </div>
+		        </div><!-- /.modal-content -->
+		    </div>
+		</div><!-- /.modal -->
+		<!-- 修改头像---------------------------->
+		<div class="modal fade" id="myModal_imgface" tabindex="-1" role="dialog" aria-labelledby="myModal_imgface" aria-hidden="true">
+		    <div class="modal-dialog">
+		        <div class="modal-content">
+		        	<div class="modal-header" style="text-align: center;">
+		                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+		            	<img src="img/imgface.jpg" class="img-rounded" style="width: 100px;cursor: pointer;" id="img_face">
+		            	<input type="file" style="display: none;" id="upfileface">
+						<br>
+						<span style="color:#b5b5b5;font-size: 13px;">点击上面的图片上传头像</span>
+		            </div>
+		            <div class="modal-body" id="img_box_body">
+						<!-- 图片处理 -->
+					    <div id="img_box" style="position:absolute;top:0;width:100%;display:none;left:0px;height: 300px;">
+							<div id="clipArea" style="height: 300px;"></div>
+					    </div>
+					   	<p id="img_box_p" style="position:absolute;top:310px;display: none;">说明：请滚动滑轮调整图片大小</p>	
+						<button id="img_box_btn" class="btn btn_desc sel" style="position:absolute;top:310px;right:10px;display: none;">确定上传</button>
+						<!-- end -->	
+		            </div>
+		        </div><!-- /.modal-content -->
+		    </div>
+		</div><!-- /.modal -->
+		
+			<!----------------登录注册--------------------->
+		<div class="modal fade" id="myModal_landreg" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-body">
+						<div id="myTabContent" class="tab-content">
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+							<ul id="myTab" class="nav nav-tabs">
+								<li class="active" id="li_land"><a href="#index_land" data-toggle="tab"> 登录</a></li>
+								<li id="li_reg"><a href="#index_reg" data-toggle="tab">注册</a></li>
+							</ul>
+							
+							<div class="tab-pane fade in active" id="index_land">
+								<form class="form-horizontal" role="form" style="margin-top: 10px;">
+									<div class="form-group">
+										<label for="land_mobile" class="col-sm-2 control-label">手机</label>
+										<div class="col-sm-9">
+											<input type="number" class="form-control" id="land_mobile"  placeholder="请输入手机">
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="land_pwd" class="col-sm-2 control-label">密码</label>
+										<div class="col-sm-9">
+											<input type="password" class="form-control" id="land_pwd"  placeholder="请输入密码">
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="col-sm-offset-2 col-sm-9">
+											<div class="checkbox">
+												<label>
+													<input type="checkbox" id="jizhu_pass"> 请记住我
+												</label>
+												<span style="float: right;">忘记密码</span>
+											</div>	
+										</div>	
+									</div>
+								</form>	
+							</div>
+							<div class="tab-pane fade" id="index_reg">
+								<form class="form-horizontal" role="form" style="margin-top: 10px;">
+									<div class="form-group">
+										<label for="reg_mobile" class="col-sm-2 control-label">手机号</label>
+										<div class="col-sm-6">
+											<input type="number" class="form-control" id="reg_mobile" placeholder="请输入手机">
+										</div>
+										<div class="col-sm-3">
+											<button class="btn btn-default btn-block" type="button" id="code">发送验证码</button>
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="reg_smsCode" class="col-sm-2 control-label">验证码</label>
+										<div class="col-sm-9">
+											<input type="number" class="form-control" id="reg_smsCode" placeholder="请输入验证码">
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="reg_password" class="col-sm-2 control-label">密码</label>
+										<div class="col-sm-9">
+											<input type="password" class="form-control" id="reg_password"    placeholder="请输入密码">
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="reg_confirmPwd" class="col-sm-2 control-label">确认密码</label>
+										<div class="col-sm-9">
+											<input type="password" class="form-control" id="reg_confirmPwd" placeholder="请输入密码">
+										</div>
+									</div>
+								</form>	
+							</div>
+						</div>	
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+						<button type="button" class="btn btn-primary" data-type="land" id="btn_land_reg">确定</button>
+					</div>
+				</div><!-- /.modal-content -->
+			</div>
+		</div><!-- /.modal -->	
+		
+		<!-- 查看账单---------------------------->
+		<div class="modal fade" id="myModal_bill" tabindex="-1" role="dialog" aria-labelledby="myModal_bill" aria-hidden="true">
+		    <div class="modal-dialog">
+		        <div class="modal-content">
+		            <div class="modal-header">
+		                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+		                <h4 class="modal-title">我的账单</h4>
+		            </div>
+		            <div class="modal-body">
+		            	<table class="table table-hover table-striped">
+							<thead class="table_title">
+								<tr>
+									<th>创建时间</th>
+									<th>明细</th>
+									<th>金额</th>
+								</tr>
+							</thead>
+							<tbody id="bill_list"></tbody>	
+						</table>
+						<div class="loading" id="load_bill"><img src="img/loading.gif"></div>
+		            </div>
+		            <div class="modal-footer">  
+						<ul class="pagination pull-right" id="bill_footer"></ul>
+		            </div>
+		        </div><!-- /.modal-content -->
+		    </div>
+		</div><!-- /.modal -->
+
+		<!-- 查看提现列表---------------------------->
+		<div class="modal fade" id="myModal_withdrawal" tabindex="-1" role="dialog" aria-labelledby="myModal_withdrawal" aria-hidden="true">
+		    <div class="modal-dialog">
+		        <div class="modal-content">
+		            <div class="modal-header">
+		                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+		                <h4 class="modal-title">我的提现记录</h4>
+		            </div>
+		            <div class="modal-body">
+		            	<table class="table table-hover table-striped">
+							<thead class="table_title">
+								<tr>
+									<th>申请时间</th>
+									<th>提现金额</th>
+									<th>状态</th>
+									<th>处理时间</th>
+								</tr>
+							</thead>
+							<tbody id="withdrawal_list"></tbody>	
+						</table>
+						<div class="loading" id="load_withdrawal"><img src="img/loading.gif"></div>
+		            </div>
+		            <div class="modal-footer">  
+						<ul class="pagination pull-right" id="withdrawal_footer"></ul>
+		            </div>
+		        </div><!-- /.modal-content -->
+		    </div>
+		</div><!-- /.modal -->
+
+		<!--我要提现---------------------------->
+		<div class="modal fade" id="myModal_wantwithd" tabindex="-1" role="dialog" aria-labelledby="myModal_wantwithd" aria-hidden="true">
+		    <div class="modal-dialog">
+		        <div class="modal-content">
+		            <div class="modal-header">
+		                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+		                <h4 class="modal-title">申请提现</h4>
+		            </div>
+		            <div class="modal-body">
+		            	<form class="form-horizontal" role="form">
+						  <div class="form-group">
+						    <label for="withd_money" class="col-sm-2 control-label">提现金额</label>
+						    <div class="col-sm-9">
+						      <input type="number" class="form-control" id="withd_money" placeholder="请输入提现金额">
+						    </div>
+						  </div>
+						  <div class="form-group">
+						    <label for="withd_money_pwd" class="col-sm-2 control-label">提现密码</label>
+						    <div class="col-sm-9">
+						      <input type="password" class="form-control" id="withd_money_pwd" placeholder="请输入提现密码">
+						    </div>
+						  </div>
+						</form>
+						<div style="text-align: center;">
+							<h6>同时请关注客服二维码，发红包提现哦</h6><br>
+							<img src="img/kefu.jpg">
+						</div>
+		            </div>
+		            <div class="modal-footer">
+		                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+		                <button type="button" class="btn btn-primary" id="sure_tixianBtn">确定</button>
+		            </div>
+		        </div><!-- /.modal-content -->
+		    </div>
+		</div><!-- /.modal -->
+		
+		
+		<!--设置提现密码---------------------------->
+		<div class="modal fade" id="myModal_setwithdpwd" tabindex="-1" role="dialog" aria-labelledby="myModal_setwithdpwd" aria-hidden="true">
+		    <div class="modal-dialog">
+		        <div class="modal-content">
+		            <div class="modal-header">
+		                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+		                <h4 class="modal-title">设置提现(或钱包支付)密码</h4>
+		            </div>
+		            <div class="modal-body">
+		            	<form class="form-horizontal" role="form">
+						  <div class="form-group">
+						    <label for="withd_pwd" class="col-sm-2 control-label">密码</label>
+						    <div class="col-sm-9">
+						      <input type="password" class="form-control" id="withd_pwd" placeholder="请输入提现/支付密码">
+						    </div>
+						  </div>
+						  <div class="form-group">
+						    <label for="conf_withd_pwd" class="col-sm-2 control-label">确认密码</label>
+						    <div class="col-sm-9">
+						      <input type="password" class="form-control" id="conf_withd_pwd" placeholder="请输入确认密码">
+						    </div>
+						  </div>
+						</form>
+		            </div>
+		            <div class="modal-footer">
+		                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+		                <button type="button" class="btn btn-primary" id="sure_setwithdpwd">确定</button>
+		            </div>
+		        </div><!-- /.modal-content -->
+		    </div>
+		</div><!-- /.modal -->
+		
+		<!-- 加标---------------------------->
+		<div class="modal fade" id="myModal_addbidding" tabindex="-1" role="dialog" aria-labelledby="myModal_addbidding" aria-hidden="true">
+		    <div class="modal-dialog">
+		        <div class="modal-content">
+		            <div class="modal-header">
+		                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+		                <h4 class="modal-title">加标<small>&nbsp;如果竞标者都没有解决您的问题，您可以加标哦(系统默认竞标人数最多十个)</small></h4>
+		            </div>
+		            <div class="modal-body">
+		            	<input type="number" class="form-control" id="xg_addbindding"  placeholder="请输入数字，最多加标10次">
+		            </div>
+		            <div class="modal-footer">
+		                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+		                <button type="button" class="btn btn-primary" id="sure_addbindding" data-qid="">确定</button>
+		            </div>
+		        </div><!-- /.modal-content -->
+		    </div>
+		</div><!-- /.modal -->
+		
+		<!-- 查看竞标者列表---------------------------->
+		<div class="modal fade" id="myModal_biddinglist" tabindex="-1" role="dialog" aria-labelledby="myModal_biddinglist" aria-hidden="true">
+		    <div class="modal-dialog">
+		        <div class="modal-content">
+		            <div class="modal-header">
+		                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+		                <h4 class="modal-title">问题标题</h4>
+		            </div>
+		            <div class="modal-body">
+		            	<table class="table table-hover table-striped table-responsive">
+							<thead class="table_title">
+								<tr>
+									<th>头像</th>
+									<th>竞标者</th>
+									<th>能力</th>
+									<th>手机号</th>	
+									<th>QQ</th>
+									<th>竞标时间</th>
+									<th>操作</th>
+								</tr>
+							</thead>
+							<tbody id="bidding_list"></tbody>	
+						</table>
+						<div class="loading" id="load_bidding"><img src="img/loading.gif"></div>
+		            </div>
+		        </div><!-- /.modal-content -->
+		    </div>
+		</div><!-- /.modal -->
+		
+		<!-- 投诉---------------------------->
+		<div class="modal fade" id="myModal_complain" tabindex="-1" role="dialog" aria-labelledby="myModal_complain" aria-hidden="true">
+		    <div class="modal-dialog">
+		        <div class="modal-content">
+		            <div class="modal-header">
+		                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+		                <h4 class="modal-title">投诉<small>&nbsp;私下协商不了的，客服将会介入</small></h4>
+		            </div>
+		            <div class="modal-body">
+		            	<select  class="form-control" id="complain_sel">
+		            		<option>问题已解决，对方一直不确认付款</option>
+		            	</select>
+		            	<br>
+		            	<p>其他原因：</p>
+		            	<textarea id="complain_rea" class="form-control" placeholder="请输入其他投诉原因"></textarea>
+		            	<br>
+		            	<div style="text-align: center;">
+		            		<p>同时，请加入客服微信，并提供相关截图等有用信息</p>
+		            		<img src="img/kefu.jpg" class="img-rounded">	
+		            	</div>
+
+		            </div>
+		            <div class="modal-footer">
+		                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+		                <button type="button" class="btn btn-primary" id="complian_sure" data-qid=0>确定</button>
+		            </div>
+		        </div><!-- /.modal-content -->
+		    </div>
+		</div><!-- /.modal -->
+		
+		
+		
+		<!-- 问题详情 -->
+		<div class="modal fade" id="myModal_qdesc" tabindex="-2" role="dialog" aria-labelledby="myModal_qdesc" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+							&times;
+						</button>
+						<img id="qdesc_faceurl" src="img/imgface.jpg" class="img-rounded pull-left" style="width: 70px;">
+						<div class="modal-title pull-left" id="myModalLabel" style="margin-left: 10px;">
+							<h5>
+								<span  id="qdesc_nickname">昵称</span>
+								<small style="margin-left: 10px;" id="qdesc_paytime">发布时间</small>
+								<span class="xinyong" id="qdesc_credit">信用:0</span>
+							</h5>
+							<span class="badge badge-red wtdesc_sj" id="qdesc_awardmoney">赏 ￥0</span>
+							<span>状态：<i id="qdesc_solvestatus">未知</i></span>
+							<span class="wtdesc_fl" id="qdesc_assort">分类：未知</span>
+						</div>
+					</div>
+					<div class="modal-body">
+						<h4 id="qdesc_title">标题</h4>
+						<div id="qdesc_content">内容</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn_desc" data-dismiss="modal" aria-hidden="true">关闭</button>
+					</div>
+				</div><!-- /.modal-content -->
+			</div>
+		</div><!--/.modal -->
+		
+		
+		<!--立刻回答-->
+		<div class="modal fade" id="myModal_answer_rhight_now" tabindex="-2" role="dialog" aria-labelledby="myModal_answer_rhight_now" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header" style="text-align: center;">
+						<img id="arn_face" src="img/imgface.jpg" class="img-circle" width="60px">
+						<p id="arn_nickname">昵称</p>
+					</div>
+					<div class="modal-body">
+						<h4 id="arn_title">问题	</h4>
+						<h4>
+							<small>QQ加好友时请说明：<mark  id="arn_say">我是回答者昵称+QQ+手机号,我可以解决问题：XX</mark></small>
+						</h4> 
+						<p>
+							联系方式：
+							手机<i id="arn_mobile" style="font-size: 20px;font-weight: 600;margin-left: 10px;">xxx</i>
+							<a id="arn_QQ" class="btn btn_desc sel" style="margin-left:30px;" href="#" target="_blank">QQ(点击加好友)</a>
+						</p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn_desc" data-dismiss="modal" aria-hidden="true">关闭</button>
+					</div>
+				</div><!-- /.modal-content -->
+			</div>
+		</div><!--/.modal -->
+		
+		<!-- 技能选择---------------------------->
+		<div class="modal fade" id="myModal_skill" tabindex="-1" role="dialog" aria-labelledby="myModal_skill" aria-hidden="true">
+		    <div class="modal-dialog">
+		        <div class="modal-content">
+		            <div class="modal-header">
+		                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+		                <h4 class="modal-title">选择你擅长的技能，我们会以<mark>邮件</mark>的形式通知你有新的问题</h4>
+		            </div>
+		            <div class="modal-body" style="height: 120px;">
+		            	<div class="jins" id="me_skill"></div>
+		            </div>
+		            <div class="modal-footer">
+		                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+		                <button type="button" class="btn btn-primary"  data-dismiss="modal">确定</button>
+		            </div>
+		        </div><!-- /.modal-content -->
+		    </div>
+		</div><!-- /.modal -->
+		
+		<!-- 用户协议---------------------------->
+		<div class="modal fade" id="myModal_userbook" tabindex="-1" role="dialog" aria-labelledby="myModal_userbook" aria-hidden="true">
+		    <div class="modal-dialog">
+		        <div class="modal-content">
+		            <div class="modal-header">
+		                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+		                <h4 class="modal-title">用户协议说明</h4>
+		            </div>
+		            <div class="modal-body">
+		            	 
+		            </div>
+		            <div class="modal-footer">
+		                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+		                <button type="button" class="btn btn-primary"  data-dismiss="modal">确定</button>
+		            </div>
+		        </div><!-- /.modal-content -->
+		    </div>
+		</div><!-- /.modal -->
+	</body>
+<script type="text/javascript" src="js/layer.js"></script>
+<script type="text/javascript" src="js/md5.min.js"></script>
+
+<!--剪裁图片st-->
+<script src="js/iscroll-zoom.js"></script>
+<script src="js/hammer.js"></script>
+<script src="js/lrz.all.bundle.js"></script>
+<script src="js/jquery.photoClip.js"></script>
+<!--剪裁图片end-->
+
+<!--富文本剪辑器st-->
+<script type="text/javascript" src="simditor-1.0.5/scripts/js/module.js"></script>
+<script type="text/javascript" src="simditor-1.0.5/scripts/js/uploader.js"></script>
+<script type="text/javascript" src="simditor-1.0.5/scripts/js/simditor.js"></script>
+<!--富文本剪辑器end-->
+		
+<script type="text/javascript" src="js/comm.js"></script>
+<script type="text/javascript" src="js/myhome.js"></script>
+
+<script>
+	$("[data-toggle='tooltip']").tooltip();
+</script>
+</html>
